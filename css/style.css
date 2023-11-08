@@ -5473,11 +5473,8 @@ h1 .wpb_text_column p, h2 .wpb_text_column p, h3 .wpb_text_column p, h4 .wpb_tex
 }
 .sc_menuitems_style_menuitems-1 .sc_menuitem_description {
     line-height: 1.5em;
-	margin-left: 20%;
-	margin-right: auto;  
 	width: 80%;
-	text-align: auto;
-	padding-left: 1.9%;
+	margin-left: 20%;
 	padding-bottom: 5%;
 }
 .sc_menuitems_style_menuitems-2 {}
@@ -5621,48 +5618,6 @@ h1 .wpb_text_column p, h2 .wpb_text_column p, h3 .wpb_text_column p, h4 .wpb_tex
 }
 .sc_menuitems_style_menuitems-1 .column_padding_bottom {
     padding-bottom: 30px !important;
-}
-
-@media (max-width: 959px) {
-    .popup_menuitem > .sc_menuitems_wrap {
-        width: 600px;
-    }
-}
-
-@media (max-width: 767px) {
-    .popup_menuitem > .sc_menuitems_wrap {
-        width: 500px;
-    }
-}
-
-@media (max-width: 639px) {
-    .popup_menuitem > .sc_menuitems_wrap {
-        width: 320px;
-    }
-    .sc_menuitems_style_menuitems-2 .sc_menuitem_box_title {
-        font-size: 1.5em;
-    }
-    .sc_menuitems_style_menuitems-2 .sc_menuitem_nutritions_list li {
-        width: 100%;
-    }
-}
-
-@media (max-width: 479px) {
-    .popup_menuitem > .sc_menuitems_wrap {
-        width: 280px;
-    }
-    .sc_menuitems_style_menuitems-2 .sc_menuitem_box_title {
-        font-size: 1em;
-    }
-    .sc_menuitems_style_menuitems-2 .sc_menuitem_more .sc_button {
-        margin: 10px 0 0;
-    }
-}
-
-@media (max-width: 320px) {
-    .popup_menuitem > .sc_menuitems_wrap {
-        width: 250px;
-    }
 }
 
 
