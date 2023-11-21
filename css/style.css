@@ -6256,3 +6256,7 @@ button.mfp-close:after, button.mfp-arrow:after {
     width:100%;
     position:absolute;
 }
+
+.TitleRev {
+	margin-top: 7%;
+}
