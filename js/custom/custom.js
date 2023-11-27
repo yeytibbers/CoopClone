@@ -5,6 +5,8 @@ jQuery( document ).on( "ready", function() {
 		initRevSlider();
 	if (jQuery(".esg-grid").length > 0)  
 		initEssentialGrid();
+	if (jQuery(".booked-calendar").length > 0)  
+		initDatepicker();
 });
 
 
@@ -55,6 +57,16 @@ window._wpemojiSettings = {
 }(window, document, window._wpemojiSettings);
 
 
+(function() {
+	"use strict";
+	function addEventListener(element, event, handler) {
+		if (element.addEventListener) {
+			element.addEventListener(event, handler, false);
+		} else if (element.attachEvent) {
+			element.attachEvent('on' + event, handler);
+		}
+	}
+})();
 
 
 function initRevSlider() {
@@ -319,7 +331,37 @@ function initRevSlider() {
 		errorMessage +="<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
 		errorMessage="<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
 		jQuery(sliderID).show().html(errorMessage);
-	}	
+	}
+
+	var tpj=jQuery;
+	var rev_slider_2_2=tpj("#rev_slider_2_2");
+	var revapi2;
+	tpj(window).on('load',function() {
+	"use strict";
+		if(rev_slider_2_2.revolution===undefined) {
+			revslider_showDoubleJqueryError("#rev_slider_2_2");
+		}
+		else {
+			revapi2=rev_slider_2_2.show().revolution( {
+				sliderType:"standard", jsFileLocation:"//hotcoffee.themerex.net/wp-content/plugins/revslider/public/assets/js/", sliderLayout:"auto", dottedOverlay:"none", delay:9000, navigation: {
+					keyboardNavigation:"off", keyboard_direction: "horizontal", mouseScrollNavigation:"off", onHoverStop:"off", touch: {
+						touchenabled: "on", swipe_threshold: 75, swipe_min_touches: 50, swipe_direction: "horizontal", drag_block_vertical: false
+					}
+					, bullets: {
+						enable: true, hide_onmobile: true, hide_under: 600, style: "", hide_onleave: false, direction: "horizontal", h_align: "center", v_align: "bottom", h_offset: 0, v_offset: 70, space: 16, tmp: '<span class="tp-bullet-image"></span><span class="tp-bullet-title"></span>'
+					}
+				}
+				, visibilityLevels:[1240, 1024, 778, 480], gridwidth:1240, gridheight:840, lazyType:"none", shadow:0, spinner:"spinner0", stopLoop:"off", stopAfterLoops:-1, stopAtSlide:-1, shuffle:"off", autoHeight:"off", disableProgressBar:"on", hideThumbsOnMobile:"off", hideSliderAtLimit:0, hideCaptionAtLimit:0, hideAllCaptionAtLilmit:0, debugMode:false, fallbacks: {
+					simplifyAll: "off", nextSlideOnWindowFocus: "off", disableFocusListener: false,
+				}
+			}
+			);
+		}
+	}
+
+);
+	
+	
 }
 
 
@@ -406,13 +448,13 @@ function initEssentialGrid() {
 			height: coh + "px"
 		});
 	}
-	
+	var essapi_3;
 	jQuery(window).on('load',function() {
 		essapi_3 = esg_grid_3_1.tpessential({
 			gridID: 3,
 			layout: "cobbles",
 			forceFullWidth: "off",
-			lazyLoad: "on",
+			lazyLoad: "off",
 			row: 30,
 			loadMoreAjaxToken: "0c69fd013a",
 			loadMoreAjaxUrl: "",
@@ -754,7 +796,128 @@ function initEssentialGrid() {
 		else
 			return lastamount;
 	}
+	var esg_grid_1_1 = jQuery("#esg-grid-1-1");
+	if ("even" === "even") {
+		var coh = 0,
+			container = esg_grid_1_1;
+		var cwidth = container.width(),
+			ar = "4:3",
+			gbfc = eggbfc(jQuery(window).width(), "id"),
+			row = 30;
+		var aratio ;
+		ar = ar.split(":");
+		aratio = parseInt(ar[0], 0) / parseInt(ar[1], 0);
+		coh = cwidth / aratio;
+		coh = coh / gbfc.column * row;
+		var ul = container.find("ul").first();
+		ul.css({
+			display: "block",
+			height: coh + "px"
+		});
+	}
+	var essapi_1;
+	jQuery(window).on('load',function() {
+		essapi_1 = esg_grid_1_1.tpessential({
+			gridID: 1,
+			layout: "even",
+			forceFullWidth: "off",
+			lazyLoad: "off",
+			row: 30,
+			loadMoreAjaxToken: "0c69fd013a",
+			loadMoreAjaxUrl: "",
+			loadMoreAjaxAction: "Essential_Grid_Front_request_ajax",
+			ajaxContentTarget: "ess-grid-ajax-container-",
+			ajaxScrollToOffset: "0",
+			ajaxCloseButton: "off",
+			ajaxContentSliding: "on",
+			ajaxScrollToOnLoad: "on",
+			ajaxNavButton: "off",
+			ajaxCloseType: "type1",
+			ajaxCloseInner: "false",
+			ajaxCloseStyle: "light",
+			ajaxClosePosition: "tr",
+			space: 10,
+			pageAnimation: "fade",
+			paginationScrollToTop: "off",
+			spinner: "spinner0",
+			evenGridMasonrySkinPusher: "off",
+			lightBoxMode: "all",
+			animSpeed: 1000,
+			delayBasic: 1,
+			mainhoverdelay: 1,
+			filterType: "single",
+			showDropFilter: "hover",
+			filterGroupClass: "esg-fgc-1",
+			googleFonts: ['Open+Sans:300,400,600,700,800', 'Raleway:100,200,300,400,500,600,700,800,900', 'Droid+Serif:400,700'],
+			aspectratio: "4:3",
+			responsiveEntries: [{
+				width: 1400,
+				amount: 3
+			}, {
+				width: 1170,
+				amount: 3
+			}, {
+				width: 1024,
+				amount: 3
+			}, {
+				width: 960,
+				amount: 3
+			}, {
+				width: 778,
+				amount: 3
+			}, {
+				width: 640,
+				amount: 3
+			}, {
+				width: 480,
+				amount: 1
+			}]
+		});
 
+		try {
+			jQuery("#esg-grid-1-1 .esgbox").esgbox({
+				padding: [0, 0, 0, 0],
+				afterLoad: function() {
+					if (this.element.hasClass("esgboxhtml5")) {
+						var mp = this.element.data("mp4"),
+							ogv = this.element.data("ogv"),
+							webm = this.element.data("webm");
+						this.content = '<div style="width:100%;height:100%;"><video autoplay="true" loop="" class="rowbgimage" poster="" width="100%" height="auto"><source src="' + mp + '" type="video/mp4"><source src="' + webm + '" type="video/webm"><source src="' + ogv + '" type="video/ogg"></video></div>';
+						var riint = setInterval(function() {
+							jQuery(window).trigger("resize");
+						}, 100);
+						setTimeout(function() {
+							clearInterval(riint);
+						}, 2500);
+					};
+				},
+				beforeShow: function() {
+					this.title = jQuery(this.element).attr('lgtitle');
+					if (this.title) {
+						this.title = "";
+						this.title = '<div style="padding:0px 0px 0px 0px">' + this.title + '</div>';
+					}
+				},
+				afterShow: function() {},
+				openEffect: 'fade',
+				closeEffect: 'fade',
+				nextEffect: 'fade',
+				prevEffect: 'fade',
+				openSpeed: 'normal',
+				closeSpeed: 'normal',
+				nextSpeed: 'normal',
+				prevSpeed: 'normal',
+				helpers: {
+					media: {},
+					title: {
+						type: ""
+					}
+				}
+			});
+
+		} catch (e) {}
+
+	});
 	
 	
 	function eggbfc(winw, resultoption) {
@@ -821,7 +984,80 @@ function initEssentialGrid() {
 		else
 			return lastamount;
 	}
-
+	var esg_grid_2_1 = jQuery("#esg-grid-2-1");
+	if ("masonry" === "even") {
+		var coh = 0,
+			container = esg_grid_2_1;
+		var cwidth = container.width(),
+			ar = "4:3",
+			gbfc = eggbfc(jQuery(window).width(), "id"),
+			row = 30;
+		ar = ar.split(":");
+		aratio = parseInt(ar[0], 0) / parseInt(ar[1], 0);
+		coh = cwidth / aratio;
+		coh = coh / gbfc.column * row;
+		var ul = container.find("ul").first();
+		ul.css({
+			display: "block",
+			height: coh + "px"
+		});
+	}
+	var essapi_2;
+	jQuery(window).on('load',function() {
+		essapi_2 = esg_grid_2_1.tpessential({
+			gridID: 2,
+			layout: "masonry",
+			forceFullWidth: "off",
+			lazyLoad: "off",
+			row: 30,
+			loadMoreAjaxToken: "0c69fd013a",
+			loadMoreAjaxUrl: "",
+			loadMoreAjaxAction: "Essential_Grid_Front_request_ajax",
+			ajaxContentTarget: "ess-grid-ajax-container-",
+			ajaxScrollToOffset: "0",
+			ajaxCloseButton: "off",
+			ajaxContentSliding: "on",
+			ajaxScrollToOnLoad: "on",
+			ajaxNavButton: "off",
+			ajaxCloseType: "type1",
+			ajaxCloseInner: "false",
+			ajaxCloseStyle: "light",
+			ajaxClosePosition: "tr",
+			space: 10,
+			pageAnimation: "fade",
+			paginationScrollToTop: "off",
+			spinner: "spinner0",
+			lightBoxMode: "all",
+			animSpeed: 1000,
+			delayBasic: 1,
+			mainhoverdelay: 1,
+			filterType: "single",
+			showDropFilter: "hover",
+			filterGroupClass: "esg-fgc-2",
+			googleFonts: ['Open+Sans:300,400,600,700,800', 'Raleway:100,200,300,400,500,600,700,800,900', 'Droid+Serif:400,700'],
+			responsiveEntries: [{
+				width: 1400,
+				amount: 3
+			}, {
+				width: 1170,
+				amount: 3
+			}, {
+				width: 1024,
+				amount: 3
+			}, {
+				width: 960,
+				amount: 3
+			}, {
+				width: 778,
+				amount: 3
+			}, {
+				width: 640,
+				amount: 3
+			}, {
+				width: 480,
+				amount: 1
+			}]
+		});
 
 		try {
 			jQuery("#esg-grid-2-1 .esgbox").esgbox({
@@ -866,7 +1102,10 @@ function initEssentialGrid() {
 
 		} catch (e) {}
 
-	}
+	});
+	
+	
+}
 
 
 function initDatepicker() {
