@@ -6260,3 +6260,28 @@ button.mfp-close:after, button.mfp-arrow:after {
 .TitleRev {
 	margin-top: 7%;
 }
+
+.field .error-text
+{
+	font: 14.5px;
+	color: #d93025;
+	text-align: left;
+	margin: -5px 0 10px;
+	display: none;
+}
+
+form .textarea-field .error-text
+{
+	margin-top: -10px ;
+} 
+
+.field.error .error-text
+{
+	display: block;
+}
+
+.item{
+	margin-bottom: 1.111em;
+  width: 100%;
+  text-align: center;
+}
